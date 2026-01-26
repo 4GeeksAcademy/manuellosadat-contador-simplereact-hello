@@ -1,18 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-//Bootstrap
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap"
+// estilos globales
+import "../styles/index.css";
 
-// index.css'
-import '../styles/index.css'
+// componente
+import SecondsCounter from "./components/SecondsCounter";
 
-// components
-import Home from './components/Home';
+let seconds = 0;
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Home/>
-  </React.StrictMode>,
-)
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+setInterval(() => {
+  seconds++;
+
+  root.render(<SecondsCounter seconds={seconds} />);
+}, 1000);
